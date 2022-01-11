@@ -18,7 +18,7 @@ module.exports  = {
         let newHouse = {
             id: globalId,
             address,
-            price,
+            price: +price,
             imageURL
         }
         
@@ -32,6 +32,7 @@ module.exports  = {
         let index = houses.findIndex((house)=>{
             return house.id === +id
         })
+        console.log(houses[index].price)
         if (houses[index].price <= 0 && type === 'minus'){
             res.status(400).send('Your house cannot have negative value');
         }else if( type === 'plus'){
